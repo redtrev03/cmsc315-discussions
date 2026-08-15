@@ -33,3 +33,13 @@ Your reflection should be approximately 150–200 words and address the followin
 2. What challenges did you encounter, and how did you overcome them?
 3. Compare OOP to procedural programming.
 4. Discuss the benefits of maintainability and reusability and apply this managing overhead, practical application development, and future use.
+
+
+## Implementation
+
+Implemented ParentClass and ChildClass using inheritance, class variables,
+instance variables, constructors, and method overriding.
+Added demonstrations of class/instance namespaces using __dict__.
+Added shallow and deep copying demonstrations with nested mutable data.
+Added student extension with major and course enrollment functionality.
+The implementation demonstrates OOP concepts, code reuse, and maintainability.
