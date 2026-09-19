@@ -21,74 +21,113 @@ def main():
     print("=== UNIT 6: DICTIONARIES AS HASH TABLES ===")
 
     # ===============================
-    # TODO (Student): CREATE A HASH TABLE
+    # CREATE A HASH TABLE
     # ===============================
     #
-    # Requirements:
-    # 1. Create an empty dictionary.
-    # 2. Add at least 5 key-value pairs.
-    # 3. Add comments explaining how a dictionary
-    #    behaves like a hash table.
-    # 4. Display the contents of the dictionary.
+    # A Python dictionary works similarly to a hash table
+    # because it stores data using key-value pairs. The key
+    # is used to find the associated value efficiently.
+    #
+    # Create an empty dictionary first.
+    inventory = {}
 
+    # Add five key-value pairs to the dictionary.
+    inventory["Laptop"] = 10
+    inventory["Keyboard"] = 25
+    inventory["Mouse"] = 30
+    inventory["Monitor"] = 15
+    inventory["Headset"] = 20
 
     print("\n=== INSERT OPERATIONS ===")
-    print("TODO: Create a dictionary and add multiple key-value pairs.")
+    print("Inventory after inserting five items:")
+    print(inventory)
 
     # ===============================
-    # TODO (Student): LOOKUP OPERATIONS
+    # LOOKUP OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Retrieve at least two existing keys.
-    # 2. Clearly display the lookup results.
-    # 3. Add meaningful comments to explain how the lookup works.
+    # Dictionary lookups use a key to retrieve its associated
+    # value. Python uses the dictionary's hash table structure
+    # to locate the value efficiently.
 
     print("\n=== LOOKUP OPERATIONS ===")
-    print("TODO: Demonstrate successful key lookups.")
+
+    laptop_quantity = inventory["Laptop"]
+    mouse_quantity = inventory["Mouse"]
+
+    print("Laptop quantity:", laptop_quantity)
+    print("Mouse quantity:", mouse_quantity)
 
     # ===============================
-    # TODO (Student): UPDATE OPERATIONS
+    # UPDATE OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Update the value associated with an existing key.
-    # 2. Display the dictionary before and after the update.
-    # 3. Use comments to explain what happens when an existing key is assigned
-    #    a new value.
+    # Assigning a new value to an existing key updates the
+    # value associated with that key. The key remains in the
+    # dictionary, but its value is replaced.
 
     print("\n=== UPDATE OPERATIONS ===")
-    print("TODO: Demonstrate updating an existing key.")
+
+    print("Dictionary before update:")
+    print(inventory)
+
+    inventory["Laptop"] = 12
+
+    print("Dictionary after updating Laptop quantity:")
+    print(inventory)
 
     # ===============================
-    # TODO (Student): DELETE OPERATIONS
+    # DELETE OPERATIONS
     # ===============================
     #
-    # Requirements:
-    # 1. Delete at least one key-value pair.
-    # 2. Display the dictionary before and after deletion.
-    # 3. Use comments to explain what happens when a key is removed.
+    # The del statement removes the specified key and its
+    # associated value from the dictionary.
 
     print("\n=== DELETE OPERATIONS ===")
-    print("TODO: Demonstrate deleting a key-value pair.")
+
+    print("Dictionary before deletion:")
+    print(inventory)
+
+    del inventory["Headset"]
+
+    print("Dictionary after deleting Headset:")
+    print(inventory)
 
     # ===============================
-    # TODO (Student): EDGE CASES
+    # EDGE CASES
     # ===============================
     #
-    # Demonstrate at least two edge cases.
-    #
-    # Example ideas:
-    # - Lookup a missing key
-    # - Delete a missing key safely
-    # - Update a missing key
-    # - Use an empty dictionary
-    #
-    # Explain what happens in each case.
+    # Edge case 1: Looking up a key that does not exist.
+    # Using the get() method allows the program to safely
+    # handle a missing key without causing a KeyError.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
 
+    missing_item = inventory.get("Printer")
+
+    if missing_item is None:
+        print("Lookup for Printer: Key not found.")
+    else:
+        print("Printer quantity:", missing_item)
+
+    # Edge case 2: Attempting to delete a key that does not
+    # exist. Checking whether the key exists first prevents
+    # the program from causing a KeyError.
+
+    if "Tablet" in inventory:
+        del inventory["Tablet"]
+        print("Tablet was deleted.")
+    else:
+        print("Delete attempt for Tablet: Key not found, so nothing was deleted.")
+
+    # Edge case 3: Updating a key that does not exist.
+    # Assigning a value to a new key adds that key to the
+    # dictionary instead of producing an error.
+
+    inventory["Printer"] = 5
+    print("Printer was not previously in the dictionary, so it was added.")
+    print("Final dictionary:")
+    print(inventory)
 
 
 if __name__ == "__main__":
